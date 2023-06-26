@@ -1,0 +1,104 @@
+body{
+    background: url(../img/5.jpg);
+    /* 设置背景铺满 */
+    background-repeat:no-repeat;
+    background-size:100%;
+
+}
+form{
+    /* 设置form大小 */
+    width: 400px;
+    height: 350px;
+
+    /* 加个背景颜色 */
+    background-color: #E1E9EF;
+
+    /* 设置透明度 */
+    opacity: 70%;
+
+    text-align: center;
+    /* 再设置内边距 使得内容更偏向于中央位置 */
+    /* 上方，下方内边距为120px 与 左边与右边均为100px 按照逆时针 */
+    /* 但是会撑大盒子 */
+    padding: 20px 80px;
+    padding-bottom: 120px;
+
+    /* 设置文本文字的大小 */
+    font-size: 18px;
+
+    /* 添加圆角边框 */
+    border-radius: 10px;
+
+    /* 增加外边距 */
+    /* 上下120px 然后左右居中 */
+    margin: 35px auto;
+
+}
+
+.textinput{
+    /* 设置宽高 */
+    height: 40px;
+    width: 300px;
+
+    /* 设置内边距 */
+    padding: 0 35px;
+
+    /* 去除边框 */
+    border: none;
+
+    /* 设置背景颜色 */
+    background: #F8F9F9;
+
+    /* 设置字体大小 */
+    font-size: 15px;
+
+    /* 给文本框加上阴影 */
+    box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.7), inset 0px 2px 5px #aaaaaa;
+
+    /* 给文本框加上圆角边框 */
+    border-radius: 5px;
+
+    /* 给文本框中输入文字加上颜色 */
+    color: saddlebrown;
+}
+
+/* 筛选input标签中 type为"submit"的 进行渲染*/
+input[type="submit"]{
+    /* 设置宽高 */
+    width: 90%;
+    height: 40px;
+
+    /* 内部文本居中 */
+    text-align: center;
+
+    /* 圆角边框 */
+    border-radius: 5px;
+
+    /* 设置字体 */
+    font:16px "黑体";
+
+    /* 设置背景颜色 */
+    background-color: #3278da;
+
+    margin-top: 40px;
+    color: white;
+    border: 1px solid #adadad;
+    letter-spacing: 4px;
+}
+a {
+    /* 去除下划线 */
+    text-decoration: none;
+}
+
+a:hover {
+    /* 悬空的时候有被选中的样子 出现下划线*/
+    text-decoration: underline;
+}
+h2{
+    color: rgb(29, 72, 146);
+    letter-spacing: 4px;
+}
+.info {
+    color: red;
+    font-weight:bold;
+}

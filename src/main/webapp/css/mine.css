@@ -1,0 +1,38 @@
+.left {
+    float: left;
+    width: 40%;
+    height: auto;
+
+}
+.right {
+
+    margin-left: 45%;
+    margin-top: 5%;
+
+}
+img{
+    margin-top: 10%;
+    margin-left: 20%;
+    border-radius:30% ;
+    width: 300px ;
+    height: 300px;
+}
+button{
+    height: 40px;
+
+    font-size: 15px;
+    background: rgb(149, 181, 211);
+    margin-left: 10%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    text-align: justify;
+    cursor: pointer;
+}
+a {
+    /* 去除下划线 */
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 10%;
+}
