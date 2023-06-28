@@ -33,13 +33,12 @@
 
     <thead>
     <tr>
-      <th>id</th>
-      <th>房间号</th>
-      <th>宿舍楼名</th>
-      <th>床号</th>
-      <th>用户名</th>
-      <th>学号</th>
-
+      <th>运动员编号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>年龄</th>
+      <th>比赛项目</th>
+      <th>院系号</th>
     </tr>
 
     </thead>

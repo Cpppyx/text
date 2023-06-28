@@ -28,7 +28,7 @@
       <form  action="${pageContext.request.contextPath}/dormrepair/query" method="post"
       >
         <span style="color: red;font-weight: bold" >${error}</span>
-        <input type="text" name="queryName"  placeholder="输入报修信息" required>
+        <input type="text" name="queryName"  placeholder="请输入您的编号" required>
         <input type="submit" value="查询" class="btn1">
       </form>
     </div>
@@ -37,13 +37,11 @@
 
     <thead>
     <tr>
-      <th>id</th>
-      <th>房间号</th>
-      <th>宿舍楼名</th>
-      <th>保修学生姓名</th>
-      <th>保修时间</th>
-      <th>保修内容</th>
-      <th>维修情况</th>
+      <th>运动员编号</th>
+      <th>比赛项目号</th>
+      <th>比赛成绩</th>
+      <th>得分</th>
+      <th>比赛名次</th>
     </tr>
 
     </thead>

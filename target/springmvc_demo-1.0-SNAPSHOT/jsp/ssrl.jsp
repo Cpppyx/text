@@ -28,7 +28,7 @@
       <form  action="${pageContext.request.contextPath}/dormitoryinfo/query" method="post"
       >
         <span style="color: red;font-weight: bold" >${error}</span>
-        <input type="text" name="queryName"  placeholder="输入查询宿舍楼名" required>
+        <input type="text" name="queryName"  placeholder="请输入您的姓名" required>
         <input type="submit" value="查询" class="btn1">
       </form>
     </div>
@@ -37,14 +37,14 @@
 
     <thead>
     <tr>
-      <th>id</th>
-      <th>房间号</th>
-      <th>宿舍楼名</th>
-      <th>床号</th>
-      <th>用户名</th>
-      <th>学号</th>
+      <th>运动员编号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>年龄</th>
+      <th>比赛项目</th>
+      <th>院系号</th>
       <th>操作</th>
-      <th >操作</th>
+      <th>操作</th>
     </tr>
 
     </thead>

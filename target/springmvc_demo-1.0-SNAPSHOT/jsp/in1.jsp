@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 陈健怡
-  Date: 2023/6/2
-  Time: 23:05
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,27 +18,33 @@
     color: #333;
     line-height: 60px;
   }
-
   .el-aside {
     color: #333;
   }
+  .top {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    background-color: #B3C0D1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 </style>
-
-
 
 <body>
 <div id="app">
   <el-container>
     <!-- <el-header style="text-align: right; font-size: 12px"></el-header> -->
     <el-header style="background-color:rgb(149, 181, 211) ;">
-      <span>嘉庚宿舍管理系统</span>
+      <span class="top">运动会管理系统</span>
       <el-dropdown style="margin-left: 80%;">
         <i class="el-icon-setting" style="margin-right: 15px"></i>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item><a href="${pageContext.request.contextPath}/index.jsp">退出</a></el-dropdown-item>
-
+          <el-dropdown-item><a href="${pageContext.request.contextPath}/jsp/mine.jsp">个人中心</a></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      <span class="login"><a href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></span>
       <span>${sessionScope.user.username}</span>
     </el-header>
   </el-container>
@@ -59,26 +58,29 @@
               :collapse="isCollapse"
               :router="true">
         <el-submenu index="1">
-          <template slot="title"><i class="el-icon-message"></i>用户信息管理</template>
+          <template slot="title"><i class="el-icon-message"></i>运动会项目管理</template>
           <el-menu-item-group>
 
-            <el-menu-item index="1-1" onclick="change1()">个人信息管理</el-menu-item>
+            <el-menu-item index="1-1" onclick="change1()">运动会安排表</el-menu-item>
+          </el-menu-item-group>
+
+          <el-menu-item index="1-2" onclick="change4()">比赛项目规则</el-menu-item>
           </el-menu-item-group>
 
 
         </el-submenu>
         <el-submenu index="2">
-          <template slot="title"><i class="el-icon-menu"></i>宿舍信息管理</template>
+          <template slot="title"><i class="el-icon-menu"></i>运动员信息管理</template>
           <el-menu-item-group>
 
-            <el-menu-item index="2-1"  onclick="change2()">宿舍信息</el-menu-item>
+            <el-menu-item index="2-1"  onclick="change2()">基本信息</el-menu-item>
           </el-menu-item-group>
 
         </el-submenu>
         <el-submenu index="3">
-          <template slot="title"><i class="el-icon-setting"></i>日常信息管理</template>
+          <template slot="title"><i class="el-icon-setting"></i>运动员参赛相关</template>
           <el-menu-item-group>
-            <el-menu-item index="3-1" onclick="change3()">宿舍保修</el-menu-item>
+            <el-menu-item index="3-1" onclick="change3()">成绩录入</el-menu-item>
           </el-menu-item-group>
 
         </el-submenu>
@@ -94,7 +96,7 @@
 
   function change1() {
     var objs=document.querySelector("#son");
-    objs.src="${pageContext.request.contextPath}/jsp/mine.jsp"
+    objs.src="${pageContext.request.contextPath}/jsp/sports_index.jsp"
   }
   function change2() {
     var objs=document.querySelector("#son");
@@ -103,6 +105,10 @@
   function change3() {
     var objs=document.querySelector("#son");
     objs.src="${pageContext.request.contextPath}/dormrepair/list?username=${sessionScope.user.username}";
+  }
+  function change4() {
+    var objs=document.querySelector("#son");
+    objs.src="${pageContext.request.contextPath}/jsp/rule.jsp"
   }
 </script>
 <script>
