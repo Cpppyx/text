@@ -1,6 +1,5 @@
 package com.example.springmvc_demo.controller;
 
-import com.example.springmvc_demo.pojo.Dormrepair;
 import com.example.springmvc_demo.service.DormrepairSerciceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

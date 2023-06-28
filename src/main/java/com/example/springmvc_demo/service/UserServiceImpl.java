@@ -1,7 +1,7 @@
 package com.example.springmvc_demo.service;
 
 import com.example.springmvc_demo.mapper.UserMapper;
-import com.example.springmvc_demo.pojo.User;
+import com.example.springmvc_demo.pojo.Users;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,16 +12,16 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserMapper mapper;
     @Override
-    public User checkLoginUser(String username, String password) {
+    public Users checkLoginUser(String username, String password) {
         return mapper.checkLoginUser(username,password);
     }
 
     @Override
-    public List<User> getUserList() {
+    public List<Users> getUserList() {
         return mapper.getUserList();
     }
     @Override
-    public int addUser(User user){
+    public int addUser(Users user){
         return mapper.addUser(user);
     }
     @Override
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         return mapper.deleteUser(id);
     }
     @Override
-    public boolean updateUser(User user){
+    public boolean updateUser(Users user){
         return mapper.updateUser(user);
     }
     @Override
@@ -37,19 +37,19 @@ public class UserServiceImpl implements UserService {
         return mapper.checkPower(name, password);
     }
     @Override
-    public boolean updateusers(User user){
+    public boolean updateusers(Users user){
         return mapper.updateusers(user);
     }
     @Override
-    public User selectUserById(int id){
+    public Users selectUserById(int id){
         return mapper.selectUserById(id);
     }
     @Override
-    public int addUsers(User user){
+    public int addUsers(Users user){
         return mapper.addUsers(user);
     }
     @Override
-    public List<User> queryUserLike(String value){
+    public List<Users> queryUserLike(String value){
         return mapper.queryUserLike(value);
     }
 }

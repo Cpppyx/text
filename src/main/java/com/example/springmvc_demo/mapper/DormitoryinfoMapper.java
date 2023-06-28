@@ -1,6 +1,5 @@
 package com.example.springmvc_demo.mapper;
 
-import com.example.springmvc_demo.pojo.Dormitoryinfo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

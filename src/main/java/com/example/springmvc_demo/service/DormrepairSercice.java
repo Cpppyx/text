@@ -1,6 +1,5 @@
 package com.example.springmvc_demo.service;
 
-import com.example.springmvc_demo.pojo.Dormrepair;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

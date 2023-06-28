@@ -1,6 +1,5 @@
 package com.example.springmvc_demo.service;
 
-import com.example.springmvc_demo.pojo.Dormitory;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
