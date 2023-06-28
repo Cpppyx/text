@@ -9,36 +9,36 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 //得到要登录的用户
-    @Select("select * from user where username = #{name} and password = #{password}")
+    @Select("select * from users where username = #{name} and password = #{password}")
     public Users checkLoginUser(@Param("name") String username, @Param("password") String password);
 
-    @Select("select power from user where username = #{name} and password = #{password}")
+    @Select("select power from users where username = #{name} and password = #{password}")
     int checkPower(@Param("name") String username, @Param("password") String password);
-    @Select("select id,username,password,name,email,power from user")
+    @Select("select user_id,role,username,password,power from users")
     List<Users> getUserList();
 
-    @Insert("insert into user(username,password,name) values (#{username},#{password},#{name})")
+    @Insert("insert into users(username,password) values (#{username},#{password})")
     int addUser(Users user);
 
-    @Delete("delete from user where id = #{id}")
+    @Delete("delete from users where user_id = #{id}")
     boolean deleteUser(int id);
 
-    @Update("update user set username=#{username},password=#{password}, name=#{name},email=#{email} where id=#{id}")
+    @Update("update users set username=#{username},password=#{password} where user_id=#{id}")
     boolean updateUser(Users user);
 
-    @Update("update user set username=#{username},password=#{password}, name=#{name},email=#{email},power=#{power} where id=#{id}")
+    @Update("update users set username=#{username},password=#{password},power=#{power} where user_id=#{id}")
     boolean updateusers(Users user);
 
     //根据id查询用户
-    @Select("select * from user where id = #{id}")
+    @Select("select * from users where user_id = #{id}")
     Users selectUserById(@Param("id") int id);
 
     //添加一个用户
-    @Insert("insert into user(id,username,password,name,email,power) values (#{id},#{username},#{password},#{name},#{email},#{power})")
+    @Insert("insert into users(user_id,role,username,password,power) values (#{id},#{username},#{password},#{power})")
     int addUsers(Users user);
 
     //模糊查询,返回符合条件的User
-    @Select("select * from user where username like concat('%','${value}','%')")
+    @Select("select * from users where username like concat('%','${value}','%')")
     List<Users> queryUserLike(@Param("value") String value);
 
 }

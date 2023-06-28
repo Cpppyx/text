@@ -74,12 +74,10 @@ public class UserController {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String passwd = request.getParameter("password");
-        String name = request.getParameter("name");
         System.out.println(username + " " + passwd );
         Users user = new Users();
         user.setUsername(username);
         user.setPassword(passwd);
-        user.setName(name);
         int i = userService.addUser(user);
         if (i > 0){
             request.setAttribute("message","注册成功，请重新登录");
@@ -112,14 +110,10 @@ public class UserController {
         String id = request.getParameter("uid");
         String username = request.getParameter("userName");
         String passwd = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
         Users user = new Users();
-        user.setId(Integer.valueOf(id));
+        user.setUser_id(Integer.valueOf(id));
         user.setUsername(username);
         user.setPassword(passwd);
-        user.setName(name);
-        user.setEmail(email);
         System.out.println(user);
         if (userService.updateUser(user)){
             request.setAttribute("message","修改成功");
@@ -146,15 +140,11 @@ public class UserController {
         String id = request.getParameter("uid");
         String username = request.getParameter("userName");
         String passwd = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
         String power = request.getParameter("power");
         Users user = new Users();
-        user.setId(Integer.valueOf(id));
+        user.setUser_id(Integer.valueOf(id));
         user.setUsername(username);
         user.setPassword(passwd);
-        user.setName(name);
-        user.setEmail(email);
         user.setPower(Integer.valueOf(power));
         System.out.println(user);
         if (userService.updateusers(user)){
