@@ -37,13 +37,11 @@
 
     <thead>
     <tr>
-      <th>id</th>
-      <th>房间号</th>
-      <th>宿舍楼名</th>
-      <th>保修学生姓名</th>
-      <th>保修时间</th>
-      <th>保修内容</th>
-      <th>维修情况</th>
+      <th>运动员编号</th>
+      <th>比赛项目号</th>
+      <th>比赛成绩</th>
+      <th>得分</th>
+      <th>比赛名次</th>
       <th>操作</th>
       <th >操作</th>
     </tr>
