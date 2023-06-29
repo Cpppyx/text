@@ -38,7 +38,7 @@
     <el-container>
         <!-- <el-header style="text-align: right; font-size: 12px"></el-header> -->
         <el-header style="background-color:rgb(149, 181, 211) ;">
-            <span>嘉庚宿舍管理系统</span>
+            <span>运动会管理系统</span>
             <el-dropdown style="margin-left: 80%;">
                 <i class="el-icon-setting" style="margin-right: 15px"></i>
                 <el-dropdown-menu slot="dropdown">
@@ -59,10 +59,10 @@
                     :collapse="isCollapse"
                     :router="true">
                 <el-submenu index="1">
-                    <template slot="title"><i class="el-icon-message"></i>用户信息管理</template>
+                    <template slot="title"><i class="el-icon-message"></i>运动会项目管理</template>
                     <el-menu-item-group>
                         <template slot="title">分组一</template>
-                        <el-menu-item index="1-1" onclick="change1()">个人信息管理 </el-menu-item>
+                        <el-menu-item index="1-1" onclick="change1()">运动员信息管理</el-menu-item>
                     </el-menu-item-group>
                     <el-menu-item-group title="分组2">
                         <el-menu-item  onclick="change2()">系统用户管理</el-menu-item>
