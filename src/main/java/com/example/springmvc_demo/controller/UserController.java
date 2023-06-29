@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -124,14 +123,6 @@ public class UserController {
             return "forward:/jsp/mine.jsp";
         }
 }
-    @RequestMapping("/modifyview")
-    public String modifyview(Model model, @RequestParam("uid") String uid) {
-        Users user = userService.selectUserById(Integer.parseInt(uid));
-        //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
-        model.addAttribute("user", user);
-        System.out.println("modifyview");
-        return "forward:/jsp/modifyuser.jsp";
-    }
 
     @RequestMapping("/updateusers")
     public String updateusers(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
