@@ -7,11 +7,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Dormitoryinfo {
-    private Integer id;
-    private String roomid;
-    private String dormitoryname;
-    private String bedid;
+public class Users {
+    private Integer user_id;
+    private String role;
     private String username;
-    private String  userid;
+    private String password;
+    private String avatar;
+    //0-管理员
+    //1-裁判
+    private Integer power;
+
 }

@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Class {
-    private Integer id;
-    private String classid;
-    private String classname;
-    private String counsellor;
+public class Departments {
+    private Integer department_id ;
+    private String department_name;
+    private Integer team_score;
+
+
 }

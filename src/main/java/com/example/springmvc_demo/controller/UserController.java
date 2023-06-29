@@ -1,6 +1,6 @@
 package com.example.springmvc_demo.controller;
 
-import com.example.springmvc_demo.pojo.User;
+import com.example.springmvc_demo.pojo.Users;
 import com.example.springmvc_demo.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,19 +39,13 @@ public class UserController {
             request.getSession().setAttribute("user", userService.checkLoginUser(userName,userPassword));
                 int power=userService.checkPower(userName,userPassword);
                 if(power==0) {
+                    //管理员
                     return "forward:/jsp/in0.jsp";
                 }
                 else if (power==1){
+                    //裁判
                     return "forward:/jsp/in1.jsp";
                 }
-                else if (power==2){
-                    return "forward:/jsp/in2.jsp";
-
-                }
-                else if (power==3){
-                    return "forward:/jsp/in3.jsp";
-                }
-
                 return "forward:/jsp/in0.jsp";
         } else {
             System.out.println("账号或者密码错误");
@@ -63,7 +57,7 @@ public class UserController {
 
     @RequestMapping("/list")
     public String list(Model model, HttpServletRequest request, HttpServletResponse response) {
-        List<User> userList = userService.getUserList();
+        List<Users> userList = userService.getUserList();
         model.addAttribute("userList", userList);
         return "forward:/jsp/users.jsp";
     }
@@ -80,12 +74,10 @@ public class UserController {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String passwd = request.getParameter("password");
-        String name = request.getParameter("name");
         System.out.println(username + " " + passwd );
-        User user = new User();
+        Users user = new Users();
         user.setUsername(username);
         user.setPassword(passwd);
-        user.setName(name);
         int i = userService.addUser(user);
         if (i > 0){
             request.setAttribute("message","注册成功，请重新登录");
@@ -118,14 +110,10 @@ public class UserController {
         String id = request.getParameter("uid");
         String username = request.getParameter("userName");
         String passwd = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        User user = new User();
-        user.setId(Integer.valueOf(id));
+        Users user = new Users();
+        user.setUser_id(Integer.valueOf(id));
         user.setUsername(username);
         user.setPassword(passwd);
-        user.setName(name);
-        user.setEmail(email);
         System.out.println(user);
         if (userService.updateUser(user)){
             request.setAttribute("message","修改成功");
@@ -138,7 +126,7 @@ public class UserController {
 }
     @RequestMapping("/modifyview")
     public String modifyview(Model model, @RequestParam("uid") String uid) {
-        User user = userService.selectUserById(Integer.parseInt(uid));
+        Users user = userService.selectUserById(Integer.parseInt(uid));
         //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
         model.addAttribute("user", user);
         System.out.println("modifyview");
@@ -152,15 +140,11 @@ public class UserController {
         String id = request.getParameter("uid");
         String username = request.getParameter("userName");
         String passwd = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
         String power = request.getParameter("power");
-        User user = new User();
-        user.setId(Integer.valueOf(id));
+        Users user = new Users();
+        user.setUser_id(Integer.valueOf(id));
         user.setUsername(username);
         user.setPassword(passwd);
-        user.setName(name);
-        user.setEmail(email);
         user.setPower(Integer.valueOf(power));
         System.out.println(user);
         if (userService.updateusers(user)){
@@ -179,7 +163,7 @@ public class UserController {
     }
 
     @RequestMapping("/addUser")
-    public String addUser(Model model, User user, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public String addUser(Model model, Users user, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         int i = userService.addUser(user);
@@ -188,7 +172,7 @@ public class UserController {
         }else {
             System.out.println("添加失败");
         }
-        List<User> userList = userService.getUserList();
+        List<Users> userList = userService.getUserList();
         //向模型中添加属性userList与值，可以在JSP页面中取出并渲染
         model.addAttribute("userList", userList);
         return "forward:/jsp/users.jsp";
@@ -197,7 +181,7 @@ public class UserController {
     @RequestMapping("/queryUser")
     public String queryUserLike(String queryName,Model model){
         System.out.println(queryName);
-        List<User> list = userService.queryUserLike(queryName);
+        List<Users> list = userService.queryUserLike(queryName);
         if (list.size() == 0) {
             list = userService.getUserList();
             model.addAttribute("error","未查到");

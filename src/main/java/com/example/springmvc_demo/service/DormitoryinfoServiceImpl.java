@@ -1,7 +1,6 @@
 package com.example.springmvc_demo.service;
 
 import com.example.springmvc_demo.mapper.DormitoryinfoMapper;
-import com.example.springmvc_demo.pojo.Dormitoryinfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
