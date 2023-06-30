@@ -70,5 +70,4 @@
     <welcome-file-list>
         <welcome-file>jsp/in1.jsp</welcome-file>
     </welcome-file-list>
-
 </web-app>

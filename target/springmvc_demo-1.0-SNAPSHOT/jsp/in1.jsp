@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 陈健怡
+  Date: 2023/6/2
+  Time: 23:05
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,15 +29,27 @@
     color: #333;
   }
   .top {
+    font-family: 'Arial', sans-serif;
     font-size: 24px;
     font-weight: bold;
-    color: #333;
-    background-color: #B3C0D1;
-    padding: 10px;
+    color: #202798;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .login a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #45a0c5;
+    color: white;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .login a:hover {
+    background-color: #3388aa;
   }
 </style>
+
+
 
 <body>
 <div id="app">
@@ -44,7 +63,9 @@
           <el-dropdown-item><a href="${pageContext.request.contextPath}/jsp/mine.jsp">个人中心</a></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <span class="login"><a href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></span>
+      <span class="login">
+        <a href="${pageContext.request.contextPath}/index.jsp">登录</a>
+      </span>
       <span>${sessionScope.user.username}</span>
     </el-header>
   </el-container>
@@ -60,19 +81,15 @@
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>运动会项目管理</template>
           <el-menu-item-group>
-
             <el-menu-item index="1-1" onclick="change1()">运动会安排表</el-menu-item>
           </el-menu-item-group>
-
-          <el-menu-item index="1-2" onclick="change4()">比赛项目规则</el-menu-item>
+          <el-menu-item-group>
+            <el-menu-item index="1-2" onclick="change4()">比赛项目规则</el-menu-item>
           </el-menu-item-group>
-
-
         </el-submenu>
         <el-submenu index="2">
           <template slot="title"><i class="el-icon-menu"></i>运动员信息管理</template>
           <el-menu-item-group>
-
             <el-menu-item index="2-1"  onclick="change2()">基本信息</el-menu-item>
           </el-menu-item-group>
 
@@ -96,7 +113,7 @@
 
   function change1() {
     var objs=document.querySelector("#son");
-    objs.src="${pageContext.request.contextPath}/jsp/sports_index.jsp"
+    objs.src="${pageContext.request.contextPath}/jsp/sports.jsp"
   }
   function change2() {
     var objs=document.querySelector("#son");

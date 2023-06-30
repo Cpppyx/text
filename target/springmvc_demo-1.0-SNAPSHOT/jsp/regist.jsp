@@ -18,7 +18,7 @@
         <div class="content">
 
             <div style="display: block;">
-                <h2>运动会管理系统</h2>
+                <h2>宿舍管理系统</h2>
                 <form action="${pageContext.request.contextPath}/user/regist" method="post">
                     <p>用户名</p>
                     <input type="text" placeholder="username" id="userInput" name="username"/>
