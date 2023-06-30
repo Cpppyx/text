@@ -15,7 +15,7 @@ public interface NMWMapper {
     boolean deleteNMV(int id);
     @Update("update nmv set department_count=#{department_count},male_event_count=#{male_event_count},female_even_count=#{female_even_count} where the_id=#{id}")
     boolean updatenmv(NMW nmw);
-    @Select("select * from nmv where ethe_id = #{id}")
+    @Select("select * from nmv where the_id = #{id}")
     NMW selectNmvById(@Param("id") int id);
 
 }
