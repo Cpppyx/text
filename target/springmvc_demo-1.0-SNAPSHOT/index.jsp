@@ -11,7 +11,7 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/user/login"  name="actionForm" id="actionForm"  method="post" >
-    <h2>宿舍管理系统</h2>
+    <h2>运动会管理系统</h2>
     <div class="info">${message }</div>
     <p><label for="userCode">用户名：</label><br /><br />
         <input type="text" class="textinput"  id="userCode" name="userName" placeholder="请输入用户名"  required/>
