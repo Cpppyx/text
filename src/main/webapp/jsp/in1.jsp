@@ -91,7 +91,7 @@
       </el-menu>
     </el-aside>
     <el-main>
-      <iframe id="son" src="${pageContext.request.contextPath}/jsp/mine.jsp" scrolling="auto" frameborder="0" width="1000px" height="450px"></iframe>
+      <iframe id="son" src="${pageContext.request.contextPath}/jsp/sports.jsp" scrolling="auto" frameborder="0" width="1000px" height="450px"></iframe>
     </el-main>
   </el-container>
 

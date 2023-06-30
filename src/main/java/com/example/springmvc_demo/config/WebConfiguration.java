@@ -34,7 +34,7 @@ public class WebConfiguration {
     @Bean
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/javaweb_kcsj");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/sports_meeting");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("Cjy20031006");
