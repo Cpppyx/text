@@ -115,6 +115,11 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.4</version>
         </dependency>
+        <dependency>
+            <groupId>g.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.3.14</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,7 +1,7 @@
 package com.example.springmvc_demo.controller;
 
-import com.example.springmvc_demo.pojo.Events;
-import com.example.springmvc_demo.service.EventServiceImpl;
+import com.example.springmvc_demo.pojo.Departments;
+import com.example.springmvc_demo.service.DepartmentsServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,25 +14,25 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/event")
-public class EventController {
-    @Resource(name = "eventServiceImpl")
-    private EventServiceImpl eventService;
+@RequestMapping("/departments")
+public class DepartmentsController {
+    @Resource(name = "departmentsServiceImpl")
+    private DepartmentsServiceImpl departmentsService;
 
-    @RequestMapping("/eventlist")
-    public String eventlist(Model model, HttpServletRequest request, HttpServletResponse response) {
-        List<Events> eventsList= eventService.getEventList();
-        model.addAttribute("eventlist",eventsList);
+    @RequestMapping("/departmentslist")
+    public String departmentslist(Model model, HttpServletRequest request, HttpServletResponse response) {
+        List<Departments> departmentslistList= departmentsService.getdepartmentsList();
+        model.addAttribute("departmentslistList",departmentslistList);
         return "forward:/jsp/users.jsp";
     }
 
-    @RequestMapping("/eventdelete")
-    public String eventdelete(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    @RequestMapping("/departmentsdelete")
+    public String departmentsdelete(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         String id = request.getParameter("id");
         System.out.println(id);
 
-        if (eventService.deleteEvent(Integer.parseInt(id))){
+        if (departmentsService.deleteDepartments(Integer.parseInt(id))){
             request.setAttribute("message","删除成功");
             return "forward:/jsp/users.jsp";
         }else {
@@ -44,15 +44,16 @@ public class EventController {
 
     @RequestMapping("/modifyview")
     public String modifyview(Model model, @RequestParam("uid") String uid) {
-        Events event = eventService.selectEventById(Integer.parseInt(uid));
+
+        Departments departments = departmentsService.selectDepartmentsById(Integer.parseInt(uid));
         //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
-        model.addAttribute("event", event);
+        model.addAttribute("departments",departments);
         System.out.println("modifyview");
         return "forward:/jsp/modifyuser.jsp";
     }
 
-    @RequestMapping("/updatevent")
-    public String updatevent(Model model, Events events,HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    @RequestMapping("/updatdepartments")
+    public String updatdepartments(Model model, Departments departments,HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 //        String id = request.getParameter("uid");
@@ -66,9 +67,9 @@ public class EventController {
 //        event.setEvent_date();
 //
 //        System.out.println(event);
-        if (eventService.updateEvent(events)){
+        if (departmentsService.updateDepartments(departments)){
             request.setAttribute("message","修改成功");
-            request.getSession().setAttribute("event", events);
+            request.getSession().setAttribute("departments", departments);
             return "forward:/jsp/users.jsp";
         }else {
             request.setAttribute("message","修改失败");
@@ -76,39 +77,26 @@ public class EventController {
         }
     }
 
-    @RequestMapping("/toAddEvent")
+    @RequestMapping("/toAdddepartments")
     public String toAddEvent() {
         return "forward:/jsp/addUser.jsp";
     }
 
-    @RequestMapping("/addEvent")
-    public String addEvent(Model model, Events events, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    @RequestMapping("/adddepartments")
+    public String adddepartments(Model model, Departments departments, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        int i = eventService.addEvent(events);
+        int i = departmentsService.addDepartments(departments);
         if (i > 0){
             System.out.println("添加成功");
         }else {
             System.out.println("添加失败");
         }
-        List<Events> eventsList= eventService.getEventList();
+        List<Departments> departmentsList= departmentsService.getdepartmentsList();
         //向模型中添加属性userList与值，可以在JSP页面中取出并渲染
-        model.addAttribute("eventList", eventsList);
+        model.addAttribute("departmentsList", departmentsList);
         return "forward:/jsp/users.jsp";
     }
-
-    @RequestMapping("/queryEventLike")
-    public String queryEventLike(String queryName,Model model){
-        System.out.println(queryName);
-        List<Events> list= eventService.queryEventLike(queryName);
-        if (list.size() == 0) {
-            list = eventService.getEventList();
-            model.addAttribute("error","未查到");
-        }
-        model.addAttribute("userList", list);
-        return "forward:/jsp/users.jsp";
-    }
-
 
 
 
