@@ -35,20 +35,7 @@
     color: #202798;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  .login a {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: #45a0c5;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  .login a:hover {
-    background-color: #3388aa;
-  }
 </style>
-
 
 
 <body>
