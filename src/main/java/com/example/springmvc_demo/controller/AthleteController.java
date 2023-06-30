@@ -50,27 +50,66 @@ public class AthleteController {
         return "forward:/jsp/modifyuser.jsp";
     }
 
-//    @RequestMapping("/updateusers")
-//    public String updateusers(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-//        request.setCharacterEncoding("UTF-8");
-//        response.setCharacterEncoding("UTF-8");
+    @RequestMapping("/updatAthlete")
+    public String updatAthlete(Model model, Athletes athletes, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 //        String id = request.getParameter("uid");
-//        String username = request.getParameter("userName");
-//        String passwd = request.getParameter("password");
-//        String power = request.getParameter("power");
-//        Users user = new Users();
-//        user.setUser_id(Integer.valueOf(id));
-//        user.setUsername(username);
-//        user.setPassword(passwd);
-//        user.setPower(Integer.valueOf(power));
-//        System.out.println(user);
-//        if (userService.updateusers(user)){
-//            request.setAttribute("message","修改成功");
-//            request.getSession().setAttribute("user", user);
-//            return "forward:/jsp/users.jsp";
-//        }else {
-//            request.setAttribute("message","修改失败");
-//            return "forward:/jsp/users.jsp";
-//        }
-//    }
+//        String name = request.getParameter("userName");
+//        String type = request.getParameter("password");
+//        String location = request.getParameter("power");
+//
+//        Events event = new Events();
+//        event.setEvent_id(Integer.valueOf(id));
+//        event.setEvent_name(username);
+//        event.setEvent_date();
+//
+//        System.out.println(event);
+        if (athleteService.updateAthlete(athletes)){
+            request.setAttribute("message","修改成功");
+            request.getSession().setAttribute("athlete",athletes);
+            return "forward:/jsp/users.jsp";
+        }else {
+            request.setAttribute("message","修改失败");
+            return "forward:/jsp/users.jsp";
+        }
+    }
+
+    @RequestMapping("/toAddAthlete")
+    public String toAddAthlete() {
+        return "forward:/jsp/addUser.jsp";
+    }
+
+    @RequestMapping("/addAthlete")
+    public String addAthlete(Model model, Athletes athletes, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        int i = athleteService.addAthlete(athletes);
+        if (i > 0){
+            System.out.println("添加成功");
+        }else {
+            System.out.println("添加失败");
+        }
+
+        List<Athletes> athletesList= athleteService.getAthleteList();
+        //向模型中添加属性userList与值，可以在JSP页面中取出并渲染
+        model.addAttribute("athletelist",athletesList);
+        return "forward:/jsp/users.jsp";
+    }
+
+    @RequestMapping("/queryAthleteLike")
+    public String queryAthleteLike(String queryName,Model model){
+        System.out.println(queryName);
+//        List<Events> list= eventService.queryEventLike(queryName);
+        List<Athletes> list= athleteService.queryAthletesLike(queryName);
+        if (list.size() == 0) {
+            list = athleteService.getAthleteList();
+            model.addAttribute("error","未查到");
+        }
+        model.addAttribute("userList", list);
+        return "forward:/jsp/users.jsp";
+    }
+
+
+
 }

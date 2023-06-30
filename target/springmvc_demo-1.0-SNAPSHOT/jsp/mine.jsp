@@ -29,8 +29,6 @@
 <div class="right">
   <p><h3>用户名:${sessionScope.user.username}</h3></p>
   <p><h3>密码:${user.password}</h3></p>
-  <p><h3>真实姓名:${user.name}</h3></p>
-  <p><h3>邮箱:${user.email}</h3></p>
   <p><a href="modify.jsp">修改</a></p>
 
 
