@@ -18,7 +18,7 @@
         <div class="content">
 
             <div style="display: block;">
-                <h2>宿舍管理系统</h2>
+                <h2>运动会管理系统</h2>
                 <form action="${pageContext.request.contextPath}/user/regist" method="post">
                     <p>用户名</p>
                     <input type="text" placeholder="username" id="userInput" name="username"/>
@@ -26,8 +26,6 @@
                     <input type="password" placeholder="password"  id="pwdInput" name="password"/>
                     <p>确认密码</p>
                     <input type="password" placeholder="confirmpassword"  id="confirmPwd" />
-                    <p>真实姓名</p>
-                    <input type="text" placeholder="name" name="name"/>
                     <br/>
                     ${message}
                     <input type="submit" id="submitBtn" value="注册"/>

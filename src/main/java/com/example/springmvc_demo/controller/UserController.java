@@ -24,6 +24,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
     @Resource(name = "userServiceImpl")
     private UserServiceImpl userService;
     @RequestMapping("/login")
@@ -39,13 +40,13 @@ public class UserController {
                 int power=userService.checkPower(userName,userPassword);
                 if(power==0) {
                     //管理员
-                    return "forward:/jsp/in0.jsp";
+                    return "forward:/jsp/in1.jsp";
                 }
                 else if (power==1){
                     //裁判
                     return "forward:/jsp/in1.jsp";
                 }
-                return "forward:/jsp/in0.jsp";
+                return "forward:/jsp/in1.jsp";
         } else {
             System.out.println("账号或者密码错误");
             model.addAttribute("msg", "账号或者密码错误");
@@ -77,6 +78,7 @@ public class UserController {
         Users user = new Users();
         user.setUsername(username);
         user.setPassword(passwd);
+
         int i = userService.addUser(user);
         if (i > 0){
             request.setAttribute("message","注册成功，请重新登录");
@@ -157,6 +159,8 @@ public class UserController {
     public String addUser(Model model, Users user, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
+
         int i = userService.addUser(user);
         if (i > 0){
             System.out.println("添加成功");

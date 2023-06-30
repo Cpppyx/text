@@ -35,20 +35,7 @@
     color: #202798;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  .login a {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: #45a0c5;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  .login a:hover {
-    background-color: #3388aa;
-  }
 </style>
-
 
 
 <body>
@@ -104,7 +91,7 @@
       </el-menu>
     </el-aside>
     <el-main>
-      <iframe id="son" src="${pageContext.request.contextPath}/jsp/mine.jsp" scrolling="auto" frameborder="0" width="1000px" height="450px"></iframe>
+      <iframe id="son" src="${pageContext.request.contextPath}/jsp/sports.jsp" scrolling="auto" frameborder="0" width="1000px" height="450px"></iframe>
     </el-main>
   </el-container>
 
