@@ -24,7 +24,7 @@ public class Athlete_eventController {
         List<Athlete_event> athlete_eventList= athlete_eventService.getAthlete_eventList();
         model.addAttribute("athlete_eventlist",athlete_eventList);
 
-        return "forward:/jsp/users.jsp";
+        return "forward:/jsp/Athlete_event.jsp";
     }
 
 
