@@ -53,7 +53,7 @@
         <tbody>
         <c:forEach var="athlete" items="${requestScope.get('athletesList')}" >
             <tr>
-                <td>${athlete.athlete_id}</td>
+                <td>${athlete.getAthlete_id()}</td>
                 <td>${athlete.athlete_name}</td>
                 <td>${athlete.gender}</td>
                 <td>${athlete.age}</td>
