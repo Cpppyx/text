@@ -23,7 +23,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.14" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.14" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.3.14" />
-          <element id="file-copy" path="D:/develop/apache-maven-3.8.4/maven-repo/org/springframework/spring-tx/5.3.14/spring-tx-5.3.14.jar" output-file-name="org.springframework-spring-tx-5.3.14.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../maven/apache-maven-3.9.1/maven-repo/org/springframework/spring-tx/5.3.14/spring-tx-5.3.14.jar" output-file-name="org.springframework-spring-tx-5.3.14.jar" />
           <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.2" />
           <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2" />
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
@@ -38,7 +38,7 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.2" />
           <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.4" />
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.2" />
-          <element id="file-copy" path="D:/develop/apache-maven-3.8.4/maven-repo/g/springframework/spring-tx/5.3.14/spring-tx-5.3.14.jar" output-file-name="g.springframework-spring-tx-5.3.14.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../maven/apache-maven-3.9.1/maven-repo/g/springframework/spring-tx/5.3.14/spring-tx-5.3.14.jar" output-file-name="g.springframework-spring-tx-5.3.14.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
