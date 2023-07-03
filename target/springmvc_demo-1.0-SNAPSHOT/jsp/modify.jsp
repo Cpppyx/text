@@ -121,17 +121,11 @@
 <body>
 <form action="${pageContext.request.contextPath}/user/update" method="post">
     <h2>修改个人信息</h2>
-    <input type="hidden" name="uid" value="${user.id }"/>
+    <input type="hidden" name="uid" value="${user.user_id}"/>
     <p><span style="margin-right: 20px;">用户名:</span>
         <input id="userInput" name="userName" type="text" class="textinput" placeholder="请输入用户名" value="${user.username}" />
     </p>
     <p><span style="margin-right: 45px;">密码:</span><input id="pwdInput" name="password" placeholder="请输入密码" type="text" class="textinput" value="${user.password}" />
-    </p>
-    <p><span style="margin-right: 5px;">真实姓名:</span>
-        <input id="nameInput" name="name" type="text" class="textinput" placeholder="请输入真实姓名" value="${user.name} "/>
-    </p>
-    <p><span style="margin-right: 45px;">邮箱:</span>
-        <input id="emailInput" name="email" type="text" class="textinput" placeholder="请输入邮箱" value="${user.email} "/>
     </p>
     <p>
         <input type="submit" id="submitBtn" value="修改" />
