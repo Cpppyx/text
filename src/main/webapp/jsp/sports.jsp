@@ -1,5 +1,5 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -96,11 +96,21 @@
             <div class="tt">
                 <label class="t">运动会名称<span class="d">：</span></label>
                 <div class="ttt">
-                    <input id="name" type="text" class="dd" placeholder="请输入运动会名称" value="厦门大学嘉庚学院秋季运动会" disabled/>
+                    <c:if test="${sessionScope.userbool}">
+                        <input id="name" type="text" class="dd" placeholder="请输入运动会名称" value="厦门大学嘉庚学院秋季运动会"/>
+                    </c:if>
+                    <c:if test="${!sessionScope.userbool}">
+                        <input id="name" type="text" class="dd" placeholder="请输入运动会名称" value="厦门大学嘉庚学院秋季运动会" disabled/>
+                    </c:if>
                 </div>
                 <label class="t">地点<span class="d">：</span></label>
                 <div class="ttt">
-                    <input id="place" type="text" class="dd" placeholder="请输入地点" value="厦门大学嘉庚学院北区田径场" disabled/>
+                    <c:if test="${sessionScope.userbool}">
+                        <input id="place" type="text" class="dd" placeholder="请输入地点" value="厦门大学嘉庚学院北区田径场"/>
+                    </c:if>
+                    <c:if test="${!sessionScope.userbool}">
+                        <input id="place" type="text" class="dd" placeholder="请输入地点" value="厦门大学嘉庚学院北区田径场" disabled/>
+                    </c:if>
                 </div>
             </div>
 
@@ -108,76 +118,159 @@
                 <label class="t">持续时间：</label>
                 <div class="dd">
                     <span>从</span>
-                    <span><input id="starttime" type="date" class="" placeholder="请选择运动会开始日期" value="2023-09-10" disabled/></span>
+                    <span>
+                        <c:if test="${sessionScope.userbool}">
+                            <input id="starttime" type="date" class="" placeholder="请选择运动会开始日期" value="2023-09-10"/>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input id="starttime" type="date" class="" placeholder="请选择运动会开始日期" value="2023-09-10" disabled/>
+                        </c:if>
+                    </span>
                     <span>开始，</span>
                 </div>
                 <div class="dd">
                     <span>持续到</span>
-                    <span><input id="endtime" type="date" class="" placeholder="请选择运动会结束日期" value="2023-09-13" disabled/></span>
+                    <span>
+                        <c:if test="${sessionScope.userbool}">
+                            <input id="endtime" type="date" class="" placeholder="请选择运动会结束日期" value="2023-09-13"/>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input id="endtime" type="date" class="" placeholder="请选择运动会结束日期" value="2023-09-13" disabled/>
+                        </c:if>
+                    </span>
                     <span>结束</span>
                 </div>
                 <label class="t">届数</label>
                 <div class="dd">
-                    <select id="jie" class="jie" disabled>
-                        <option value="2022届">2022届</option>
-                        <option value="2023届">2023届</option>
-                        <option selected value="2024届">2024届</option>
-                    </select>
+                    <c:if test="${sessionScope.userbool}">
+                        <select id="jie" class="jie">
+                            <option value="2022届">2022届</option>
+                            <option value="2023届">2023届</option>
+                            <option selected value="2024届">2024届</option>
+                        </select>
+                    </c:if>
+                    <c:if test="${!sessionScope.userbool}">
+                        <select id="jie" class="jie" disabled>
+                            <option value="2022届">2022届</option>
+                            <option value="2023届">2023届</option>
+                            <option selected value="2024届">2024届</option>
+                        </select>
+                    </c:if>
                 </div>
             </div>
             <div class="tt">
                 <label class="t">参赛单位<span class="d">：</span></label>
                 <div class="ttt">
-                    <input id="post" type="text" class="dd" placeholder="请输入参赛单位" value="各学院、各研究院" disabled/>
+                    <c:if test="${sessionScope.userbool}">
+                        <input id="post" type="text" class="dd" placeholder="请输入参赛单位" value="各学院、各研究院"/>
+                    </c:if>
+                    <c:if test="${!sessionScope.userbool}">
+                        <input id="post" type="text" class="dd" placeholder="请输入参赛单位" value="各学院、各研究院" disabled/>
+                    </c:if>
                 </div>
                 <label class="">报名方法<span class="">：</span></label>
                 <div class="ttt">
-                    <input id="methon" type="text" class="dd" placeholder="请输入报名方法" value="各单位从体育教学部网页上（http://tyjxb.xmu.edu.cn）体育赛事一栏下载各单位的报名软件报名，请先认真阅读报名软件使用说明，报名后的报名软件请在2022年10月17日（星期一）17:00以前发到体育部邮箱内（tyjs@xmu.edu.cn），10月19日（周三）17:00后可上网下载并校对各单位报名情况，若有误请于10月21日(周五)上午11:00前发Email：tyjs@xmu.edu.cn注明需修改内容（单位名称、组别、性别、所报项目、联系人、联系电话等）。咨询电话：2187193付老师" disabled/>
+                    <c:if test="${sessionScope.userbool}">
+                        <input id="methon" type="text" class="dd" placeholder="请输入报名方法" value="各单位从体育教学部网页上（http://tyjxb.xmu.edu.cn）体育赛事一栏下载各单位的报名软件报名，请先认真阅读报名软件使用说明，报名后的报名软件请在2022年10月17日（星期一）17:00以前发到体育部邮箱内（tyjs@xmu.edu.cn），10月19日（周三）17:00后可上网下载并校对各单位报名情况，若有误请于10月21日(周五)上午11:00前发Email：tyjs@xmu.edu.cn注明需修改内容（单位名称、组别、性别、所报项目、联系人、联系电话等）。咨询电话：2187193付老师"/>
+                    </c:if>
+                    <c:if test="${!sessionScope.userbool}">
+                        <input id="methon" type="text" class="dd" placeholder="请输入报名方法" value="各单位从体育教学部网页上（http://tyjxb.xmu.edu.cn）体育赛事一栏下载各单位的报名软件报名，请先认真阅读报名软件使用说明，报名后的报名软件请在2022年10月17日（星期一）17:00以前发到体育部邮箱内（tyjs@xmu.edu.cn），10月19日（周三）17:00后可上网下载并校对各单位报名情况，若有误请于10月21日(周五)上午11:00前发Email：tyjs@xmu.edu.cn注明需修改内容（单位名称、组别、性别、所报项目、联系人、联系电话等）。咨询电话：2187193付老师" disabled/>
+                    </c:if>
                 </div>
             </div>
             <div class="t">
                 <label class="tt">注意事项<span class="d">：</span></label>
                 <div class="ttt">
-                    <input id="iii" type="text" class="dd" placeholder="请输入注意事项" value="略" disabled/>
+                    <c:if test="${sessionScope.userbool}">
+                        <input id="iii" type="text" class="dd" placeholder="请输入注意事项" value="略"/>
+                    </c:if>
+                    <c:if test="${!sessionScope.userbool}">
+                        <input id="iii" type="text" class="dd" placeholder="请输入注意事项" value="略" disabled/>
+                    </c:if>
                 </div>
             </div>
             <div class="t">
                 <label class="tt">比赛项目<span class="d">：</span></label>
                 <div class="ttt">
                     <div class="e">
-                        <input type="checkbox" id="tt1" name="title" value="男子100米" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt1" name="title" value="男子100米" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt1" name="title" value="男子100米" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt1">男子100米</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt2" name="title" value="男子400米" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt2" name="title" value="男子400米" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt2" name="title" value="男子400米" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt2">男子400米</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt3" name="title" value="男子1000米" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt3" name="title" value="男子1000米" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt3" name="title" value="男子1000米" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt3">男子1000米</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt4" name="title" value="女子100米" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt4" name="title" value="女子100米" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt4" name="title" value="女子100米" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt4">女子100米</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt5" name="title" value="女子400米" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt5" name="title" value="女子400米" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt5" name="title" value="女子400米" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt5">女子400米</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt6" name="title" value="女子800米" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt6" name="title" value="女子800米" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt6" name="title" value="女子800米" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt6">女子800米</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt7" name="title" value="跳高" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt7" name="title" value="跳高" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt7" name="title" value="跳高" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt7">跳高</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt8" name="title" value="跳远" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt8" name="title" value="跳远" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt8" name="title" value="跳远" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt8">跳远</label>
                     </div>
                     <div class="e">
-                        <input type="checkbox" id="tt9" name="title" value="三级跳" class="ee" checked disabled>
+                        <c:if test="${sessionScope.userbool}">
+                            <input type="checkbox" id="tt9" name="title" value="三级跳" class="ee" checked>
+                        </c:if>
+                        <c:if test="${!sessionScope.userbool}">
+                            <input type="checkbox" id="tt9" name="title" value="三级跳" class="ee" checked disabled>
+                        </c:if>
                         <label class="" for="tt9">三级跳</label>
                     </div>
                 </div>
@@ -188,5 +281,48 @@
             <button id="submit" onclick="submitResume()" type="button" class="look">查看完整信息</button>
         </div>
     </form>
+<%--    <script>--%>
+<%--        // 从Session Storage中获取数据--%>
+<%--        var data = sessionStorage.getItem('userbool');--%>
+<%--        console.log(data);--%>
+
+<%--        if(data === true){--%>
+<%--            var nameInput = document.getElementById("name");--%>
+<%--            var placeInput = document.getElementById("place");--%>
+<%--            var startTimeInput = document.getElementById("starttime");--%>
+<%--            var endTimeInput = document.getElementById("endtime");--%>
+<%--            var jieSelect = document.getElementById("jie");--%>
+<%--            var postInput = document.getElementById("post");--%>
+<%--            var methodInput = document.getElementById("methon");--%>
+<%--            var iiiInput = document.getElementById("iii");--%>
+<%--            var tt1Checkbox = document.getElementById("tt1");--%>
+<%--            var tt2Checkbox = document.getElementById("tt2");--%>
+<%--            var tt3Checkbox = document.getElementById("tt3");--%>
+<%--            var tt4Checkbox = document.getElementById("tt4");--%>
+<%--            var tt5Checkbox = document.getElementById("tt5");--%>
+<%--            var tt6Checkbox = document.getElementById("tt6");--%>
+<%--            var tt7Checkbox = document.getElementById("tt7");--%>
+<%--            var tt8Checkbox = document.getElementById("tt8");--%>
+<%--            var tt9Checkbox = document.getElementById("tt9");--%>
+
+<%--            nameInput.removeAttribute("disabled");--%>
+<%--            placeInput.removeAttribute("disabled");--%>
+<%--            startTimeInput.removeAttribute("disabled");--%>
+<%--            endTimeInput.removeAttribute("disabled");--%>
+<%--            jieSelect.removeAttribute("disabled");--%>
+<%--            postInput.removeAttribute("disabled");--%>
+<%--            methodInput.removeAttribute("disabled");--%>
+<%--            iiiInput.removeAttribute("disabled");--%>
+<%--            tt1Checkbox.removeAttribute("disabled");--%>
+<%--            tt2Checkbox.removeAttribute("disabled");--%>
+<%--            tt3Checkbox.removeAttribute("disabled");--%>
+<%--            tt4Checkbox.removeAttribute("disabled");--%>
+<%--            tt5Checkbox.removeAttribute("disabled");--%>
+<%--            tt6Checkbox.removeAttribute("disabled");--%>
+<%--            tt7Checkbox.removeAttribute("disabled");--%>
+<%--            tt8Checkbox.removeAttribute("disabled");--%>
+<%--            tt9Checkbox.removeAttribute("disabled");--%>
+<%--        }--%>
+<%--    </script>--%>
 </body>
 </html>
