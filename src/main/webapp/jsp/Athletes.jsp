@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -44,18 +45,19 @@
             <th>比赛项目成绩</th>
             <th>比赛得分</th>
             <th>排名</th>
+            <th>操作</th>
+            <th>操作</th>
         </tr>
 
         </thead>
         <tbody>
         <c:forEach var="athlete" items="${requestScope.get('athletesList')}" >
             <tr>
-                <td>${athlete.getathlete_id()}</td>
+                <td>${athlete.athlete_id}</td>
                 <td>${athlete.athlete_name}</td>
                 <td>${athlete.gender}</td>
                 <td>${athlete.age}</td>
                 <td>${athlete.event_type}</td>
-                <td>${athlete.department_id}</td>
                 <td><a href="${pageContext.request.contextPath}/athlete/athlete?id=${athlete.athlete_id}">修改</a></td>
                 <td><a href="${pageContext.request.contextPath}/athlete/athlete?id=${athlete.athlete_id}" onclick="deleteById()">删除</a></td>
             </tr>

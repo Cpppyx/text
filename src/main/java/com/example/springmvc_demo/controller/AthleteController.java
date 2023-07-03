@@ -21,8 +21,9 @@ public class AthleteController {
     @RequestMapping("/athletelist")
     public String athletelist(Model model, HttpServletRequest request, HttpServletResponse response) {
         List<Athletes> athletesList= athleteService.getAthleteList();
-        model.addAttribute("athletelist",athletesList);
-        return "forward:/jsp/users.jsp";
+        System.out.println(athletesList);
+        model.addAttribute("athletesList", athletesList);
+        return "forward:/jsp/Athletes.jsp";
     }
 
     @RequestMapping("/athletedelete")
