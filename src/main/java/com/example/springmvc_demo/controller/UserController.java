@@ -35,9 +35,13 @@ public class UserController {
         String userPassword = request.getParameter("userPassword");
         System.out.println(userName);
         System.out.println(userPassword);
+        boolean userbool=false;
+        request.getSession().setAttribute("userbool",userbool);
         if (userService.checkLoginUser(userName,userPassword) != null) {
             request.getSession().setAttribute("user", userService.checkLoginUser(userName,userPassword));
                 int power=userService.checkPower(userName,userPassword);
+                userbool=true;
+                request.getSession().setAttribute("userbool",userbool);
                 if(power==0) {
                     //管理员
                     return "forward:/jsp/in1.jsp";
