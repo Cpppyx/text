@@ -46,6 +46,10 @@ public class UserController {
                     //裁判
                     return "forward:/jsp/in1.jsp";
                 }
+                else if (power==2){
+                    //游客
+                    return "forward:/jsp/in1.jsp";
+                }
                 return "forward:/jsp/in1.jsp";
         } else {
             System.out.println("账号或者密码错误");

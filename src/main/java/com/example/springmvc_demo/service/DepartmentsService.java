@@ -17,4 +17,6 @@ public interface DepartmentsService {
 
     Departments selectDepartmentsById(@Param("id") int id);
 
+    int totalPoints(int id);
+
 }

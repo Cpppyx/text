@@ -40,4 +40,14 @@ public class Athlete_eventServiceImpl implements Athlete_eventService{
     public Athlete_event selectAthlete_eventById(int id) {
         return athlete_eventMapper.selectAthlete_eventById(id);
     }
+
+    @Override
+    public List<Athlete_event> getWinnerList() {
+        return athlete_eventMapper.getWinnerList();
+    }
+
+    @Override
+    public List<Athlete_event> tosetRank(int id) {
+        return athlete_eventMapper.tosetRank(id);
+    }
 }

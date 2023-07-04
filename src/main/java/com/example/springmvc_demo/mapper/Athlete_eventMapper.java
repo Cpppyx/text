@@ -22,4 +22,16 @@ public interface Athlete_eventMapper {
     @Select("select * from Athlete_event where athlete_id = #{athlete_id}")
     Athlete_event selectAthlete_eventById(@Param("athlete_id") int id);
 
+    @Select("select * from athlete_event a\n" +
+            "where 5 > (select count(*) from athlete_event b\n" +
+            "           where b.event_id = a.event_id\n" +
+            "             and b.score > a.score\n" +
+            ") order by a.event_id ,a.score desc")
+    List<Athlete_event> getWinnerList();
+
+    @Select("select * from athlete_event  where event_id= #{id} order by score desc")
+    List<Athlete_event> tosetRank(@Param("id") int id);
+
+
+
 }

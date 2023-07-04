@@ -108,7 +108,7 @@
   }
   function change3() {
     var objs=document.querySelector("#son");
-    objs.src="${pageContext.request.contextPath}/dormrepair/list?username=${sessionScope.user.username}";
+    objs.src="${pageContext.request.contextPath}/athlete_event/Athlete_eventlist";
   }
   function change4() {
     var objs=document.querySelector("#son");

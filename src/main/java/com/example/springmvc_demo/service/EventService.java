@@ -11,4 +11,6 @@ public interface EventService {
     public boolean updateEvent(Events event);
     public List<Events> queryEventLike(String value);
     public Events selectEventById(int id);
+
+    List<Events> getEventIdList();
 }

@@ -17,5 +17,12 @@ public interface DepartmentsMapper {
     boolean updateDepartments(Departments departments);
     @Select("select * from departments where department_id = #{id}")
     Departments selectDepartmentsById(@Param("id") int id);
+    @Select("select sum(endowment_score) from athlete_event b\n" +
+            "           where b.athlete_id in(\n" +
+            "                select athlete_id from athletes a\n" +
+            "                where a.department_id= #{id}\n" +
+            "\n" +
+            "               )")
+    int totalPoints(@Param("id") int id);
 
 }

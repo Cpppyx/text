@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -24,8 +25,7 @@
                href="${pageContext.request.contextPath}/athlete_event/toAdd">新增信息</a>
         </div>
         <div class="right" style="float:right;">
-            <form  action="${pageContext.request.contextPath}/athlete_event/query" method="post"
-            >
+            <form  action="${pageContext.request.contextPath}/athlete_event/query" method="post">
                 <span style="color: red;font-weight: bold" >${error}</span>
                 <input type="text" name="queryName"  placeholder="请输入运动员编号" required>
                 <input type="submit" value="查询" class="btn1">
@@ -41,13 +41,15 @@
             <th>比赛项目成绩</th>
             <th>比赛得分</th>
             <th>排名</th>
+            <th>操作</th>
+            <th>操作</th>
         </tr>
 
         </thead>
         <tbody>
         <c:forEach var="athlete_event" items="${requestScope.get('athlete_eventlist')}" >
             <tr>
-                <td>${athlete_event.getathlete_id()}</td>
+                <td>${athlete_event.getAthlete_id()}</td>
                 <td>${athlete_event.event_id}</td>
                 <td>${athlete_event.score}</td>
                 <td>${athlete_event.endowment_score}</td>
