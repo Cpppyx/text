@@ -122,22 +122,22 @@
 <form action="${pageContext.request.contextPath}/athlete/updatAthlete" method="post">
     <h2>修改运动员信息</h2>
     <p><span style="margin-right: 5px;">运动员编号:</span>
-        <input type="text" class="textinput" placeholder="请输入运动员编号" id="athlete_id" name="athlete_id" />
+        <input type="text" class="textinput" placeholder="请输入运动员编号" id="athlete_id" name="athlete_id" value="${athlete.athlete_id}"/>
     </p>
     <p><span style="margin-right: 25px;">运动员姓名:</span>
-        <input id="athlete_name" name="athlete_name"  type="text" class="textinput" placeholder="请输入运动员姓名" />
+        <input id="athlete_name" name="athlete_name"  type="text" class="textinput" placeholder="请输入运动员姓名" value="${athlete.athlete_name}"/>
     </p>
     <p><span style="margin-right: 10px;">性别:</span>
-        <input id="gender" name="gender"   type="text" class="textinput" placeholder="请输入性别" />
+        <input id="gender" name="gender"   type="text" class="textinput" placeholder="请输入性别"  value="${athlete.gender}"/>
     </p>
     <p><span style="margin-right: 10px;">年龄:</span>
-        <input id="age" name="age"   type="text" class="textinput" placeholder="请输入年龄" />
+        <input id="age" name="age"   type="text" class="textinput" placeholder="请输入年龄" value="${athlete.age}"/>
     </p>
     <p><span style="margin-right: 10px;">比赛项目:</span>
-        <input id="event_type" name="event_type"   type="text" class="textinput" placeholder="请输入比赛项目" />
+        <input id="event_type" name="event_type"   type="text" class="textinput" placeholder="请输入比赛项目" value="${athlete.event_type}" />
     </p>
     <p><span style="margin-right: 10px;">院系编号:</span>
-        <input id="department_id" name="department_id"   type="text" class="textinput" placeholder="请输入院系编号" />
+        <input id="department_id" name="department_id"   type="text" class="textinput" placeholder="请输入院系编号" value="${athlete.department_id}"/>
     </p>
     <p>
         <input type="submit" value="修改" />
