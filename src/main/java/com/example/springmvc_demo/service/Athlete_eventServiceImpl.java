@@ -42,6 +42,11 @@ public class Athlete_eventServiceImpl implements Athlete_eventService{
     }
 
     @Override
+    public int updateAthlete_eventById(Athlete_event athlete_event) {
+        return athlete_eventMapper.updateAthlete_eventById(athlete_event);
+    }
+
+    @Override
     public List<Athlete_event> getWinnerList() {
         return athlete_eventMapper.getWinnerList();
     }

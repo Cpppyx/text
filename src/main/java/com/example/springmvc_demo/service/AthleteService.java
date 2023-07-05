@@ -8,7 +8,7 @@ public interface AthleteService {
     public List<Athletes> getAthleteList();
     public int addAthlete(Athletes athlete);
     public boolean deleteAthlete(int id);
-
+    public int updateAthleteById(Athletes athlete);
     public boolean updateAthlete(Athletes athlete);
 
     public List<Athletes> queryAthletesLike(String value);
