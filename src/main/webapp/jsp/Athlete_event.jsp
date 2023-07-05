@@ -20,12 +20,14 @@
 
 <div id="div1">
     <div>
-        <div style="float: left;">
-            <a class="btn-primary"
-               href="${pageContext.request.contextPath}/athlete_event/toAddAthlete_event">新增信息</a>
-        </div>
+        <c:if test="${sessionScope.userbool}">
+            <div style="float: left;">
+                <a class="btn-primary"
+                   href="${pageContext.request.contextPath}/athlete_event/toAdd">新增信息</a>
+            </div>
+        </c:if>
         <div class="right" style="float:right;">
-            <form  action="${pageContext.request.contextPath}/athlete_event/queryAthlete_event" method="post">
+            <form  action="${pageContext.request.contextPath}/athlete_event/query" method="post">
                 <span style="color: red;font-weight: bold" >${error}</span>
                 <input type="text" name="queryName"  placeholder="请输入运动员编号" required>
                 <input type="submit" value="查询" class="btn1">
@@ -41,8 +43,10 @@
             <th>比赛项目成绩</th>
             <th>比赛得分</th>
             <th>排名</th>
-            <th>操作</th>
-            <th>操作</th>
+            <c:if test="${sessionScope.userbool}">
+                <th>操作</th>
+                <th>操作</th>
+            </c:if>
         </tr>
 
         </thead>
@@ -54,8 +58,10 @@
                 <td>${athlete_event.score}</td>
                 <td>${athlete_event.endowment_score}</td>
                 <td>${athlete_event.ranking}</td>
-                <td><a href="${pageContext.request.contextPath}/athlete_event/toUpdateAthlete_event?athlete_id=${athlete_event.athlete_id}">修改</a></td>
-                <td><a href="${pageContext.request.contextPath}/athlete_event/athlete_eventdelete?athlete_id=${athlete_event.athlete_id}" onclick="deleteById()">删除</a></td>
+                <c:if test="${sessionScope.userbool}">
+                    <td><a href="${pageContext.request.contextPath}/athlete_event/modifyview?id=${athlete_event.athlete_id}">修改</a></td>
+                    <td><a href="${pageContext.request.contextPath}/athlete_event/delete?id=${athlete_event.athlete_id}" onclick="deleteById()">删除</a></td>
+                </c:if>
             </tr>
         </c:forEach>
 

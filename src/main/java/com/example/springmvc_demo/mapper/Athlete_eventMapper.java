@@ -24,4 +24,16 @@ public interface Athlete_eventMapper {
 
     @Update("update Athlete_event set event_id=#{event_id},score=#{score},endowment_score=#{endowment_score},ranking=#{ranking} where athlete_id=#{athlete_id}")
     int updateAthlete_eventById(Athlete_event athlete_event);
+    @Select("select * from athlete_event a\n" +
+            "where 5 > (select count(*) from athlete_event b\n" +
+            "           where b.event_id = a.event_id\n" +
+            "             and b.score > a.score\n" +
+            ") order by a.event_id ,a.score desc")
+    List<Athlete_event> getWinnerList();
+
+    @Select("select * from athlete_event  where event_id= #{id} order by score desc")
+    List<Athlete_event> tosetRank(@Param("id") int id);
+
+
+
 }

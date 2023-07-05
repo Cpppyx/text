@@ -1,7 +1,9 @@
 package com.example.springmvc_demo.controller;
 
 import com.example.springmvc_demo.pojo.Athlete_event;
+import com.example.springmvc_demo.pojo.Events;
 import com.example.springmvc_demo.service.Athlete_eventServiceImpl;
+import com.example.springmvc_demo.service.EventServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,9 @@ import java.util.List;
 public class Athlete_eventController {
     @Resource(name = "athlete_eventServiceImpl")
     private Athlete_eventServiceImpl athlete_eventService;
+
+    @Resource(name = "eventServiceImpl")
+    private EventServiceImpl eventService;
 
     @RequestMapping("/Athlete_eventlist")
     public String athlete_eventlist(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -132,4 +137,39 @@ public class Athlete_eventController {
         }
         return "forward:/jsp/Athlete_event.jsp";
     }
+
+    @RequestMapping("/getWinnerList")
+    public String getWinnerList(Model model){
+        List<Athlete_event> list= athlete_eventService.getWinnerList();
+        for(int i=0;i<list.size();i++) {
+            if (i % 5 == 0) {
+                list.get(i).setEndowment_score(7);
+            } else if (i % 5 == 1) {
+                list.get(i).setEndowment_score(5);
+            } else if (i % 5 == 2) {
+                list.get(i).setEndowment_score(3);
+            } else if (i % 5 == 3) {
+                list.get(i).setEndowment_score(2);
+            } else if (i % 5 == 4) {
+                list.get(i).setEndowment_score(1);
+            }
+        }
+        List<Athlete_event> list1= athlete_eventService.getAthlete_eventList();
+        model.addAttribute("list1",list1);
+        return "forward:/jsp/winner.jsp";
+    }
+
+    @RequestMapping("/setRank")
+    public String setRank(Model model){
+      List<Events> list= eventService.getEventIdList();
+        for(int i=0;i<list.size();i++) {
+            List<Athlete_event> list1= athlete_eventService.tosetRank(list.get(i).getEvent_id());
+            for(int j=0;j<list1.size();j++) {
+               list1.get(j).setRanking("第"+j+1+"名");
+            }
+        }
+        return "forward:/jsp/winner.jsp";
+    }
+
+
 }

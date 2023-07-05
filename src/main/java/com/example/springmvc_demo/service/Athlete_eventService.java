@@ -13,4 +13,6 @@ public interface Athlete_eventService {
     public Athlete_event selectAthlete_eventById(int id);
 
     public int updateAthlete_eventById(Athlete_event athlete_event);
+    List<Athlete_event> getWinnerList();
+    List<Athlete_event> tosetRank(int id);
 }

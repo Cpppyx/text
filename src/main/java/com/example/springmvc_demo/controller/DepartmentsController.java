@@ -98,6 +98,19 @@ public class DepartmentsController {
         return "forward:/jsp/users.jsp";
     }
 
+    @RequestMapping("/totalPoints")
+    public String totalPoints(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        List<Departments> list =departmentsService.getdepartmentsList();
+        for(int i=0;i<list.size();i++){
+            int id = list.get(i).getDepartment_id();
+            int totalPoints = departmentsService.totalPoints(id);
+            list.get(i).setTeam_score(totalPoints);
+        }
+        List<Departments> list2 =departmentsService.getdepartmentsList();
+        model.addAttribute("list2",list2);
+
+        return "forward:/jsp/totalPoints.jsp";
+    }
 
 
 }

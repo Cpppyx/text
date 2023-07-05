@@ -22,4 +22,7 @@ public interface EventMapper {
     @Select("select * from events where event_id = #{id}")
     Events selectEventById(@Param("id") int id);
 
+    @Select("select event_id from events")
+    List<Events> getEventIdList();
+
 }

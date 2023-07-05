@@ -23,10 +23,12 @@
 
 <div id="div1">
     <div>
-        <div style="float: left;">
-            <a class="btn-primary"
-               href="${pageContext.request.contextPath}/athlete/toAddAthlete">新增信息</a>
-        </div>
+        <c:if test="${sessionScope.userbool}">
+            <div style="float: left;">
+                <a class="btn-primary"
+                   href="${pageContext.request.contextPath}/athlete/toAddAthlete">新增信息</a>
+            </div>
+        </c:if>
         <div class="right" style="float:right;">
             <form  action="${pageContext.request.contextPath}/athlete/queryAthlete" method="post"
             >
@@ -45,8 +47,10 @@
             <th>性别</th>
             <th>年龄</th>
             <th>比赛项目</th>
-            <th>操作</th>
-            <th>操作</th>
+            <c:if test="${sessionScope.userbool}">
+                <th>操作</th>
+                <th>操作</th>
+            </c:if>
         </tr>
 
         </thead>
@@ -58,8 +62,10 @@
                 <td>${athlete.gender}</td>
                 <td>${athlete.age}</td>
                 <td>${athlete.event_type}</td>
-                <td><a href="${pageContext.request.contextPath}/athlete/toUpdateAthlete?athlete_id=${athlete.athlete_id}">修改</a></td>
-                <td><a href="${pageContext.request.contextPath}/athlete/athletedelete?athlete_id=${athlete.athlete_id}" onclick="deleteById()">删除</a></td>
+                <c:if test="${sessionScope.userbool}">
+                    td><a href="${pageContext.request.contextPath}/athlete/toUpdateAthlete?athlete_id=${athlete.athlete_id}">修改</a></td>
+                    <td><a href="${pageContext.request.contextPath}/athlete/athletedelete?athlete_id=${athlete.athlete_id}" onclick="deleteById()">删除</a></td>
+                </c:if>
             </tr>
         </c:forEach>
 

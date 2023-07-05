@@ -36,4 +36,9 @@ public class DepartmentsServiceImpl implements DepartmentsService{
     public Departments selectDepartmentsById(int id) {
         return departmentsMapper.selectDepartmentsById(id);
     }
+
+    @Override
+    public int totalPoints(int id) {
+        return departmentsMapper.totalPoints(id);
+    }
 }
