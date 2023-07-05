@@ -63,7 +63,7 @@
                 <td>${athlete.age}</td>
                 <td>${athlete.event_type}</td>
                 <c:if test="${sessionScope.userbool}">
-                    td><a href="${pageContext.request.contextPath}/athlete/toUpdateAthlete?athlete_id=${athlete.athlete_id}">修改</a></td>
+                    <td><a href="${pageContext.request.contextPath}/athlete/toUpdateAthlete?athlete_id=${athlete.athlete_id}">修改</a></td>
                     <td><a href="${pageContext.request.contextPath}/athlete/athletedelete?athlete_id=${athlete.athlete_id}" onclick="deleteById()">删除</a></td>
                 </c:if>
             </tr>

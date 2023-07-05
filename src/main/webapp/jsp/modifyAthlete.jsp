@@ -119,7 +119,7 @@
 </head>
 
 <body>
-<form action="${pageContext.request.contextPath}/athlete/modify" method="post">
+<form action="${pageContext.request.contextPath}/athlete/updatAthlete" method="post">
     <h2>修改运动员信息</h2>
     <p><span style="margin-right: 5px;">运动员编号:</span>
         <input type="text" class="textinput" placeholder="请输入运动员编号" id="athlete_id" name="athlete_id" />

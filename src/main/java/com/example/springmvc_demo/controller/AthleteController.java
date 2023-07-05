@@ -42,14 +42,16 @@ public class AthleteController {
 
     }
 
-    @RequestMapping("/modifyview")
-    public String modifyview(Model model, @RequestParam("uid") String uid) {
-        Athletes athlete = athleteService.selectAthleteById(Integer.parseInt(uid));
+
+    @RequestMapping("/toUpdateAthlete")
+    public String toUpdateAthlete(Model model, @RequestParam("athlete_id") String athlete_id) {
+        Athletes athlete = athleteService.selectAthleteById(Integer.parseInt(athlete_id));
         //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
         model.addAttribute("athlete", athlete);
-        System.out.println("modifyview");
-        return "forward:/jsp/modifyAthletes.jsp";
+        System.out.println("toUpdateAthlete");
+        return "forward:/jsp/modifyAthlete.jsp";
     }
+
 
     @RequestMapping("/updatAthlete")
     public String updatAthlete(Model model, Athletes athletes, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
@@ -74,6 +76,19 @@ public class AthleteController {
             request.setAttribute("message","修改失败");
             return "forward:/jsp/Athletes.jsp";
         }
+    }
+    @RequestMapping("/modify")
+    public String modify(HttpServletRequest request, Athletes athlete) {
+        System.out.println(athlete);
+        int i = athleteService.updateAthleteById(athlete);
+        if (i > 0){
+            request.setAttribute("message","修改成功");
+            List<Athletes> athletesList = athleteService.getAthleteList();
+            request.setAttribute("list", athletesList);
+        }else {
+            request.setAttribute("msg","修改失败");
+        }
+        return "forward:/jsp/Athletes.jsp";
     }
 
     @RequestMapping("/toAddAthlete")
@@ -101,38 +116,18 @@ public class AthleteController {
     @RequestMapping("/queryAthlete")
     public String queryAthleteLike(String queryName,Model model){
         System.out.println(queryName);
-//        List<Events> list= eventService.queryEventLike(queryName);
         List<Athletes> list= athleteService.queryAthletesLike(queryName);
         if (list.size() == 0) {
             list = athleteService.getAthleteList();
             model.addAttribute("error","未查到");
         }
-        model.addAttribute("list", list);
+        System.out.println(list);
+        model.addAttribute("athletesList", list);
         return "forward:/jsp/Athletes.jsp";
-    }
-    @RequestMapping("/toUpdateAthlete")
-    public String toUpdateAthlete(Model model, @RequestParam("athlete_id") String athlete_id) {
-        Athletes athlete = athleteService.selectAthleteById(Integer.parseInt(athlete_id));
-        //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
-        model.addAttribute("athlete", athlete);
-        System.out.println("toUpdateAthlete");
-        return "forward:/jsp/modifyAthlete.jsp";
     }
 
 
-    @RequestMapping("/modify")
-    public String modify(HttpServletRequest request, Athletes athlete) {
-        System.out.println(athlete);
-        int i = athleteService.updateAthleteById(athlete);
-        if (i > 0){
-            request.setAttribute("message","修改成功");
-            List<Athletes> athletesList = athleteService.getAthleteList();
-            request.setAttribute("list", athletesList);
-        }else {
-            request.setAttribute("msg","修改失败");
-        }
-        return "forward:/jsp/Athletes.jsp";
-    }
+
 
 
 }

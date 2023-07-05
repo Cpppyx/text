@@ -113,7 +113,7 @@ public class Athlete_eventController {
             list = athlete_eventService.getAthlete_eventList();
             model.addAttribute("error","未查到");
         }
-        model.addAttribute("list", list);
+        model.addAttribute("athlete_eventlist", list);
         return "forward:/jsp/Athlete_event.jsp";
     }
     @RequestMapping("/toUpdateAthlete_event")
