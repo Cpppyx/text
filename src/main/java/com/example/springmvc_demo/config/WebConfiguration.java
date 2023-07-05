@@ -37,7 +37,7 @@ public class WebConfiguration {
         dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/sports_meeting");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
-        dataSource.setPassword("Cjy20031006");
+        dataSource.setPassword("123456");
         return dataSource;
     }
 

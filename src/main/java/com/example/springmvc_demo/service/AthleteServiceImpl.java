@@ -26,6 +26,11 @@ public class AthleteServiceImpl implements AthleteService{
         return athleteMapper.deleteAthlete(id);
     }
 
+    @Override
+    public int updateAthleteById(Athletes athlete) {
+        return athleteMapper.updateAthleteById(athlete);
+    }
+
 
     @Override
     public boolean updateAthlete(Athletes athlete) {

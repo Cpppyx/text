@@ -36,10 +36,10 @@ public class Athlete_eventController {
 
         if (athlete_eventService.deleteAthlete_event(Integer.parseInt(id))){
             request.setAttribute("message","删除成功");
-            return "forward:/jsp/users.jsp";
+            return "forward:/jsp/Athlete_event.jsp";
         }else {
             request.setAttribute("message","删除失败");
-            return "forward:/jsp/users.jsp";
+            return "forward:/jsp/Athlete_event.jsp";
         }
 
     }
@@ -50,11 +50,11 @@ public class Athlete_eventController {
         //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
         model.addAttribute("athlete_event", athlete_event);
         System.out.println("modifyview");
-        return "forward:/jsp/modifyuser.jsp";
+        return "forward:/jsp/modifyAthlete_event.jsp";
     }
 
-    @RequestMapping("/updatAthlete_event")
-    public String updatAthlete_event(Model model, Athlete_event athlete_event, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    @RequestMapping("/updateAthlete_event")
+    public String updateAthlete_event(Model model, Athlete_event athlete_event, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 //        String id = request.getParameter("uid");
@@ -71,16 +71,16 @@ public class Athlete_eventController {
         if (athlete_eventService.updateAthlete_event(athlete_event)){
             request.setAttribute("message","修改成功");
             request.getSession().setAttribute("athlete_event",athlete_event);
-            return "forward:/jsp/users.jsp";
+            return "forward:/jsp/Athlete_event.jsp";
         }else {
             request.setAttribute("message","修改失败");
-            return "forward:/jsp/users.jsp";
+            return "forward:/jsp/Athlete_event.jsp";
         }
     }
 
     @RequestMapping("/toAddAthlete_event")
     public String toAddAthlete_event() {
-        return "forward:/jsp/addUser.jsp";
+        return "forward:/jsp/addAthlete_event.jsp";
     }
 
     @RequestMapping("/addAthlete_event")
@@ -96,10 +96,10 @@ public class Athlete_eventController {
         List<Athlete_event> athlete_eventList= athlete_eventService.getAthlete_eventList();
         //向模型中添加属性userList与值，可以在JSP页面中取出并渲染
         model.addAttribute("athlete_eventlist",athlete_eventList);
-        return "forward:/jsp/users.jsp";
+        return "forward:/jsp/Athlete_event.jsp";
     }
 
-    @RequestMapping("/queryAthlete_eventLike")
+    @RequestMapping("/queryAthlete_event")
     public String queryAthlete_eventLike(String queryName,Model model){
         System.out.println(queryName);
 
@@ -108,9 +108,28 @@ public class Athlete_eventController {
             list = athlete_eventService.getAthlete_eventList();
             model.addAttribute("error","未查到");
         }
-        model.addAttribute("userList", list);
-        return "forward:/jsp/users.jsp";
+        model.addAttribute("list", list);
+        return "forward:/jsp/Athlete_event.jsp";
     }
-
-
+    @RequestMapping("/toUpdateAthlete_event")
+    public String toUpdateAthlete(Model model, @RequestParam("athlete_id") String athlete_id) {
+        Athlete_event athlete_event = athlete_eventService.selectAthlete_eventById(Integer.parseInt(athlete_id));
+        //向模型中添加属性msg与值，可以在JSP页面中取出并渲染
+        model.addAttribute("athlete_event", athlete_event);
+        System.out.println("toUpdateAthlete_event");
+        return "forward:/jsp/modifyAthlete_event.jsp";
+    }
+    @RequestMapping("/modify")
+    public String modify(HttpServletRequest request, Athlete_event athlete_event) {
+        System.out.println(athlete_event);
+        int i = athlete_eventService.updateAthlete_eventById(athlete_event);
+        if (i > 0){
+            request.setAttribute("message","修改成功");
+            List<Athlete_event> athlete_eventlist = athlete_eventService.getAthlete_eventList();
+            request.setAttribute("list", athlete_eventlist);
+        }else {
+            request.setAttribute("msg","修改失败");
+        }
+        return "forward:/jsp/Athlete_event.jsp";
+    }
 }

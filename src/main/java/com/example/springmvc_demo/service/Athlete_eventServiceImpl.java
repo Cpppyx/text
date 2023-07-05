@@ -40,4 +40,9 @@ public class Athlete_eventServiceImpl implements Athlete_eventService{
     public Athlete_event selectAthlete_eventById(int id) {
         return athlete_eventMapper.selectAthlete_eventById(id);
     }
+
+    @Override
+    public int updateAthlete_eventById(Athlete_event athlete_event) {
+        return athlete_eventMapper.updateAthlete_eventById(athlete_event);
+    }
 }
